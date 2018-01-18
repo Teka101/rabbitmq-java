@@ -1,8 +1,7 @@
 #!/bin/sh
 
-echo "Launch image 0=[$0] 1=[$1] @=[$@]"
-
-service rabbitmq-server start
+RUNNING_RABBIT=$(ps -C rabbitmq-server h | wc -l)
+[ "x$RUNNING_RABBIT" = "x0" ] && service rabbitmq-server start
 
 case $1 in
     *sh) exec "$@" ;;
