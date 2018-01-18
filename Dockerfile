@@ -1,6 +1,6 @@
 FROM maven:3-jdk-8
 
-PUT entrypoint.sh /
+COPY entrypoint.sh /
 
 RUN echo 'deb http://www.rabbitmq.com/debian/ testing main' | tee /etc/apt/sources.list.d/rabbitmq.list
 RUN wget -O- https://www.rabbitmq.com/rabbitmq-release-signing-key.asc | apt-key add -
